@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -14,14 +16,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #282c34 !important;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(138, 77, 77) !important;
 }
 
 .App-link {
@@ -35,4 +37,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Post-Bounty {
+  margin-left: 2% !important;
+
 }
