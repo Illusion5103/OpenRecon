@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Link } from "react-router-dom"
 import Bounty from "./Bounty"
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {ThemeProvider, createTheme, Container, Typography, Box} from '@mui/material'
 import { Web3Storage } from 'web3.storage'
-import BountyButton from './components/BountyButton'
+import BountyButton from '../components/BountyButton'
 
 const theme = createTheme({
   palette: {
@@ -22,7 +22,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Ubuntu',
+    fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
   },
 });
 

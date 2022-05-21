@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {Container, Typography, Button, Box, Grid, Card, Select, MenuItem} from '@mui/material';
 import {Web3Storage} from 'web3.storage'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Link} from 'react-router-dom'
 import { render } from '@testing-library/react';
 import Alert from '@mui/material/Alert';
@@ -30,7 +30,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Ubuntu',
+    fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
   },
 });
 

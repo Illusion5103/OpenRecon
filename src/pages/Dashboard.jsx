@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
 import {useEthers} from "@usedapp/core"
 import { Web3Storage } from 'web3.storage'
@@ -23,8 +23,8 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'Ubuntu',
-    },
+        fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
+      },
 });
 
 function getAccessToken() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
 
 const theme = createTheme({
@@ -20,12 +20,12 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'sans-serif',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
   });
 
 
-function Contact() {
+function Privacy() {
 
     return (
         <div>
@@ -53,8 +53,10 @@ function Contact() {
             }}>
 
             <br/>
-            <Typography color="white">
-            Please email fraanetski@protonmail.com or DM on Twitter @fraanetski
+            <Typography variant='h6' color="white" sx={{
+              fontWeight: 'bold'
+            }}>
+            The only data saved is what you put into a post or submit form. All data is stored on the IPFS network.  
             </Typography>
             <br/>
 
@@ -71,4 +73,4 @@ function Contact() {
     )
 }
 
-export default Contact;
+export default Privacy;

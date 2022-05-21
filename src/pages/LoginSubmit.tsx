@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
 import {useEthers} from "@usedapp/core"
 import UAuth from '@uauth/js'
@@ -22,9 +22,9 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'Ubuntu',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
-});
+  });
 
 async function doLogin() {
   
@@ -40,9 +40,10 @@ async function doLogin() {
     } catch (error) {
       console.error(error)
     }
-}
+  }
 
-function LoginPost() {
+
+function LoginSubmit() {
 
   const {account, activateBrowserWallet, deactivate} = useEthers()
 
@@ -75,9 +76,8 @@ function LoginPost() {
 
             <br/>
             <Typography color="white">
-            Please connect with a web3 wallet.
+                Please connect with a web3 wallet.
             </Typography>
-
             <br/>
 
             {isConnected ? (
@@ -134,4 +134,4 @@ function LoginPost() {
     )
 }
 
-export default LoginPost;
+export default LoginSubmit;

@@ -1,6 +1,5 @@
 import React from 'react'
 import GLOBE from 'vanta/dist/vanta.globe.min'
-// Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
 
 class Globe extends React.Component {
     
@@ -17,7 +16,7 @@ class Globe extends React.Component {
       minHeight: 570.00,
       minWidth: 200.00,
       scale: 1.5,
-      scaleMobile: 2,
+      scaleMobile: 1,
       size: 1,
       // color: 0x000,
       // color2: 0xe9800,

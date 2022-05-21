@@ -1,13 +1,13 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
-import AB0 from './assets/ab0.png'
-import AB1 from './assets/ab1.png'
-import AB2 from './assets/ab2.png'
-import AB3 from './assets/ab3.png'
-import AB4 from './assets/ab4.png'
+import AB0 from '../assets/ab0.png'
+import AB1 from '../assets/ab1.png'
+import AB2 from '../assets/ab2.png'
+import AB3 from '../assets/ab3.png'
+import AB4 from '../assets/ab4.png'
 
 const theme = createTheme({
     palette: {
@@ -25,7 +25,7 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'ubuntu',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
   });
 
@@ -149,9 +149,9 @@ function About() {
 
               <Typography variant='h6' color="white"> 
                 The code for the project is open-sourced and available at&nbsp;
-                <Link to='https://github.com/fraanetski/openrecon' style={{color:'green'}}> 
+                <a target="_blank" href='https://github.com/fraanetski/openrecon' style={{color:'green'}}> 
                   OpenRecon on Github
-                </Link>
+                </a>
               </Typography>
             </Card>
 

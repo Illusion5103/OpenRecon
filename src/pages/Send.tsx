@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card, Collapse} from '@mui/material'
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
@@ -24,7 +24,7 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'Ubuntu',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
 });
 

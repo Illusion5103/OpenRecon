@@ -1,4 +1,4 @@
-import {Container, Typography, Button, Box, Grid} from '@mui/material'
+import {Button, Box} from '@mui/material'
 import {useEthers} from "@usedapp/core"
 import { Link } from "react-router-dom"
 

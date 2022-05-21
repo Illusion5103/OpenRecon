@@ -1,7 +1,6 @@
-import React from 'react'
-import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
+import {Typography, Box, Grid} from '@mui/material'
 import {Link} from 'react-router-dom'
-import '../App.LESS'
+import '../styles/App.LESS'
 
 function Footer() {
     return (
@@ -72,25 +71,25 @@ function Footer() {
             
             <Typography color='#acacad'>
             Powered by&nbsp;
-            <Link to='https://meter.io' style={{color:"green", textDecoration:"none"}}>
+            <a target="_blank" href="https://meter.io" style={{color:"green", textDecoration:"none"}}>
             Meter.io
-            </Link>
+            </a>
             &nbsp;and&nbsp;
-            <Link to='https://ipfs.io/' style={{color:"green", textDecoration:"none"}}>
+            <a target="_blank" href='https://ipfs.io/' style={{color:"green", textDecoration:"none"}}>
             IPFS/Filecoin
-            </Link>
+            </a>
             </Typography>
             <Typography color="#acacad">
                 Made possible by the&nbsp;
-            <Link to='https://gitcoin.co/hackathon/Rollathon/?' style={{color: "green", textDecoration:"none"}}>
+            <a target='_blank' href='https://gitcoin.co/hackathon/Rollathon/?' style={{color: "green", textDecoration:"none"}}>
                 L2 Rollathon 
-            </Link>
+            </a>
             </Typography>
             <Typography color='#acacad'>
             Built by&nbsp;
-            <Link to='https://twitter.com/netski' style={{color:"green", textDecoration:"none"}}>
+            <a target="_blank" href='https://twitter.com/fraanetski' style={{color:"green", textDecoration:"none"}}>
              netski
-            </Link>
+            </a>
             </Typography>
 
             <br/>

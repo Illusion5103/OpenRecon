@@ -1,13 +1,8 @@
-import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import {useEthers} from "@usedapp/core"
-import {Button, makeStyles, Toolbar, Typography, IconButton, Box} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import {Button, Toolbar, IconButton, Box} from '@mui/material'
 import {Link} from 'react-router-dom'
-import DiamondIcon from '@mui/icons-material/Diamond'
-import HiveIcon from '@mui/icons-material/Hive'
 import GraphicEqIcon from '@mui/icons-material/GraphicEq'
-import IMAGE from '../Removal-815.png'
 
 export const Header = () => {
 
@@ -22,13 +17,8 @@ export const Header = () => {
                     boxShadow: 'none',
                 }}>
                     <Toolbar>
-                    {/* <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                    <MenuIcon />
-                    </IconButton> */}
 
                     <Box sx={{
-                            // flexGrow: 1,
-                            // ml: 12
                         }}>
                         <Link to={"/"} style={{textDecoration:"none"}} >                        
                             <GraphicEqIcon fontSize='large' sx={{
@@ -36,7 +26,6 @@ export const Header = () => {
                                 
                             }}
                                 />
-                        {/* <img src={IMAGE} height='60' /> */}
                         </Link>
 
                 
@@ -65,6 +54,7 @@ export const Header = () => {
                         <Link to="/dash" style={{all:"unset"}}>
                             <Button sx={{align: 'right'}}
                                 variant="outlined"
+                                size='large'
                                 onClick={() => activateBrowserWallet()}
                                 >
                                 Dashboard

@@ -1,12 +1,12 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card, Collapse} from '@mui/material'
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
-import L0 from './assets/l0.png'
+import L0 from '../assets/l0.png'
 
 const theme = createTheme({
     palette: {
@@ -24,7 +24,7 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'Ubuntu',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
 });
 
@@ -114,9 +114,9 @@ function Learn() {
                 <iframe src='https://www.osintframework.com/' width="90%" height="1000" />
                 <br/>
                 <br/>
-                <Link to='https://www.osintframework.com/' style={{color: 'green'}}>
+                <a target="_blank" href='https://www.osintframework.com/' style={{color: 'green'}}>
                   OSINTFramework.com 
-                </Link>
+                </a>
               
                 </Collapse>
               <br/>

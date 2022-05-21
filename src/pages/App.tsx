@@ -2,12 +2,12 @@ import React from 'react'
 import logo from './logo.svg'
 import IMAGE from './Removal-815.png'
 import COMP from './assets/IMG_6696.jpg'
-import OR1 from './assets/openrecon1.jpg'
-import OR2 from './assets/openrecon2.jpg'
+import OR1 from '../assets/openrecon1.jpg'
+import OR2 from '../assets/openrecon2.jpg'
 import {useEthers} from "@usedapp/core"
-import  './App.css'
+import  '../styles/App.css'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid} from '@mui/material'
 //import { MetamaskConnect } from './components/MetamaskConnect'
 import Card from '@mui/material/Card'
@@ -15,8 +15,8 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import { CardActionArea, CardActions } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import Globe from './components/Globe'
-import Footer from './components/Footer'
+import Globe from '../components/Globe'
+import Footer from '../components/Footer'
 
 const theme = createTheme({
   palette: {
@@ -34,7 +34,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Ubuntu',
+    fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
   },
 });
 

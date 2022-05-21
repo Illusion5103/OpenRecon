@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import {Link} from 'react-router-dom'
-import {Header} from "./components/Header"
+import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
 import {useEthers} from "@usedapp/core"
 import UAuth from '@uauth/js'
@@ -22,27 +22,27 @@ const theme = createTheme({
       },
     },
     typography: {
-      fontFamily: 'ubuntu',
+      fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
 });
 
 async function doLogin() {
   
-  const uauth = new UAuth({
-    clientID: 'uauth_example_spa_id',
-    redirectUri: 'http://localhost:5000/callback',
-  })
-
-  try {
-    const authorization = await uauth.loginWithPopup()
- 
-    console.log(authorization)
-  } catch (error) {
-    console.error(error)
-  }
+    const uauth = new UAuth({
+      clientID: 'uauth_example_spa_id',
+      redirectUri: 'http://localhost:5000/callback',
+    })
+  
+    try {
+      const authorization = await uauth.loginWithPopup()
+   
+      console.log(authorization)
+    } catch (error) {
+      console.error(error)
+    }
 }
 
-function Login() {
+function LoginPost() {
 
   const {account, activateBrowserWallet, deactivate} = useEthers()
 
@@ -51,7 +51,7 @@ function Login() {
     return (
         <div>
         <Box sx={{flexGrow: 1,
-        }}>
+}}>
         <ThemeProvider theme={theme}>
             <Container maxWidth={false}
             disableGutters={true}
@@ -75,8 +75,9 @@ function Login() {
 
             <br/>
             <Typography color="white">
-              Please connect with a web3 wallet.
+            Please connect with a web3 wallet.
             </Typography>
+
             <br/>
 
             {isConnected ? (
@@ -133,4 +134,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default LoginPost;
