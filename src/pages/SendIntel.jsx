@@ -7,6 +7,9 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import Alert from '@mui/material/Alert';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useEthers } from "@usedapp/core"
+import OpenReconABI from './abi.json'
+import Web3 from 'web3'
 
 const theme = createTheme({
     palette: {
@@ -27,13 +30,8 @@ const theme = createTheme({
       fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
     },
 });
-
-
-interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-  }
   
-  const ExpandMore = styled((props: ExpandMoreProps) => {
+  const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
@@ -43,7 +41,31 @@ interface ExpandMoreProps extends IconButtonProps {
     }),
 }));
 
-function SendIntel(props: any) {
+const ethEnabled = async () => {  
+  if (window.ethereum) {    
+    await window.ethereum.request({method: 'eth_requestAccounts'});    
+    // window.web3 = new Web3(window.ethereum);    
+    return true;  
+  }  
+return false;
+}
+
+function SendIntel(props) {
+
+  const {account} = useEthers()
+
+  // const [res, timer] = React.useState(null)
+
+  ethEnabled()
+
+  // const web3 = new Web3('https://rpctest.meter.io')
+  const web3 = new Web3(window.ethereum)
+
+  const cid = props.cid
+
+  const orecon = new web3.eth.Contract(OpenReconABI, '0x377dC25F3a6Add80D749FE8362C85517f9B65A06')  
+  var ret = orecon.methods.makeIntel("a", cid).send({from: account})
+  // var ret = orecon.methods.fundBounty(cid).send({from: account, value: prize})
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -99,12 +121,17 @@ function SendIntel(props: any) {
               ml: 3,
               mr: 3
             }}>
-            Confirm on the OpenRecon smart contract to submit intel
+            Confirm on the OpenRecon smart contract on Meter to submit intel
             </Typography>
             <Typography sx={{
                     color: '#acacad',
                   }}>
-            Smart contract address:     
+           Note: ensure your wallet is connected to Meter Testnet! 
+            </Typography>
+            <Typography sx={{
+                    color: '#acacad',
+                  }}>
+            Smart contract address:    0x377dC25F3a6Add80D749FE8362C85517f9B65A06
             </Typography>
             <br/>
             <br/>

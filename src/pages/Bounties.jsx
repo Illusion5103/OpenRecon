@@ -5,6 +5,8 @@ import {Header} from "../components/Header"
 import {ThemeProvider, createTheme, Container, Typography, Box} from '@mui/material'
 import { Web3Storage } from 'web3.storage'
 import BountyButton from '../components/BountyButton'
+import OpenReconABI from './abi.json'
+import Web3 from 'web3'
 
 const theme = createTheme({
   palette: {
@@ -26,12 +28,20 @@ const theme = createTheme({
   },
 });
 
-// make an array of strings
-const bountyList = [
-  'bafkreiauxqhzmhpqicmzqlgefpt6374qrnmb755ltorjraprebwsk3dlwy',
-  'bafkreidal7acdzrtrttlla3zxegn4hdeatid5puli7molrk2dgvq6u3bgu',
-  'bafkreiacdp53zxwr2s7cc35k6fevpoua3mdjmzhuytj5hlvsh72xawicmu'
-]
+// const bountyList = [
+//   'bafkreiauxqhzmhpqicmzqlgefpt6374qrnmb755ltorjraprebwsk3dlwy',
+//   'bafkreidal7acdzrtrttlla3zxegn4hdeatid5puli7molrk2dgvq6u3bgu',
+//   'bafkreiacdp53zxwr2s7cc35k6fevpoua3mdjmzhuytj5hlvsh72xawicmu'
+// ]
+
+const ethEnabled = async () => {  
+  if (window.ethereum) {    
+    await window.ethereum.request({method: 'eth_requestAccounts'});    
+    // window.web3 = new Web3(window.ethereum);    
+    return true;  
+  }  
+return false;
+}
 
 class BountyMapper extends React.Component {
   // create a constructor
@@ -51,7 +61,6 @@ class BountyMapper extends React.Component {
     const url = 'https://' + cid + '.ipfs.dweb.link'
     const res = await this.curl(url)
     const data = JSON.parse(res)
-    console.log(data)
     this.addBounty(cid)
     this.addTitle(data.title)
     this.addPrize(data.prize)
@@ -103,14 +112,22 @@ class BountyMapper extends React.Component {
   }
 
   // for each bounty in bountyList, call retrieve() on it
-  dataGetter() {
+  dataGetter(data) {
     // use web3.js to get parent CIDs and store them in some sort of list (bountyList)
-    bountyList.map(cid => this.retrieve(cid))
+    data.map(cid => this.retrieve(cid))
   }
 
-  // use componentDidMount to call dataGetter()
+  async getCids() {
+    const web3 = new Web3(window.ethereum)
+    const contract = '0x377dC25F3a6Add80D749FE8362C85517f9B65A06'
+    const orecon = new web3.eth.Contract(OpenReconABI, contract)  
+    var abountyList = await orecon.methods.getCIDS().call()
+    console.log(abountyList)
+    return abountyList
+  }
+
   componentDidMount() {
-    this.dataGetter()
+    this.getCids().then(data => this.dataGetter(data))
   }
 
   render() {
@@ -150,7 +167,6 @@ class BountyMapper extends React.Component {
                   verticalAlign: 'middle',
                   display: 'block',
                   padding: 3,
-
         }}>
           {this.state.bounties.map((id, index) => (
               <Bounty id={id} 

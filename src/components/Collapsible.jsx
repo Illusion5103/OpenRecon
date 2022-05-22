@@ -51,7 +51,7 @@ export default function RecipeReviewCard(props) {
         pl:2
       }}>
       <Typography variant='h5'>
-          ${props.prize} USDC
+          {props.prize} MTR
         </Typography>
         <Typography sx={{
           pb: 4,

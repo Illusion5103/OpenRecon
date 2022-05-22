@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 /// @title a contract for creating, awarding, and closing a bounty
 /// @author netski
 /// @notice this is used to manage bounty related actions and emit the appropriate events
-contract BountyManage {
+contract OpenRecon {
 
     event NewBounty(uint bountyId, string cid, uint amount);
     event AwardBounty(uint bountyId, string cid, uint amount);
@@ -19,12 +19,17 @@ contract BountyManage {
     }
 
     Bounty[] public bounties;
+    string[] public intel;
+    string[] public childBounties;
 
     mapping (address => uint) public ownerToAmount;
+    mapping (address => string[]) public ownerToBounties;
     mapping (uint => address) public bountyToOwner;
     mapping (uint => uint) public bountyToAmount;
     mapping (uint => string) public bountyToCID;
     mapping (string => uint) public CIDToBounty;
+    mapping (string => string[]) public ParentToChildren;
+    mapping (address => string[]) public ownerToIntel;
 
     // make this contract payable
     constructor () payable {
@@ -35,6 +40,8 @@ contract BountyManage {
     function fundBounty(string memory _cid) public payable {
         // map owner to the amount they have funded
         ownerToAmount[msg.sender] += msg.value;
+        // add bounty to the list of bounties owned by this address
+        ownerToBounties[msg.sender].push(_cid);
         // call _createBounty function in manageBounty.sol
         _createBounty(_cid, msg.value, msg.sender);
     }
@@ -112,4 +119,38 @@ contract BountyManage {
     // all child cids for a given parent
     // all cids owned by an address
 
+    // view, return all active bounty cids
+    function getCIDS() public view returns(string[] memory cidList) {
+        for (uint i = 0; i < bounties.length - 1; i++) {
+            if (bounties[i].statusActive == 1) {
+                cidList[i] = bounties[i].cid;
+            }
+        }
+        return cidList;
+    }
+
+    // create a child cid (map an intel submission to a parent bounty)
+    function makeIntel(string memory _parentCid, string memory _childCid) public {
+        ParentToChildren[_parentCid].push(_childCid);
+        // map intel to collector address
+        ownerToIntel[msg.sender].push(_childCid);
+    }
+
+    // view, return all child cids for a given parent
+    function getChildren(string memory _cid) public view returns(string[] memory) {
+        return ParentToChildren[_cid];
+    }
+
+    // get the bounties owned by this address
+    function getOwnedBounties() public view returns(string[] memory ownedBounties) {
+        address _owner = msg.sender;
+        for (uint i = 0; i < ownerToBounties[_owner].length - 1; i++) {
+            ownedBounties[i] = ownerToBounties[_owner][i];
+        }
+        return ownedBounties;
+    }
+
+    function getOwnedIntel() public view returns(string memory ownedIntel) {
+        return ownedIntel;
+    }
 }

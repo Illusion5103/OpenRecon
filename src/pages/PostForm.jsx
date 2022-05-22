@@ -13,6 +13,7 @@ import Alert from '@mui/material/Alert';
 import Send from './Send'
 import { Formik } from 'formik'
 import { Form, Field, ErrorMessage } from 'formik'
+import { PromptProps } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -58,7 +59,8 @@ class Main extends React.Component {
     this.Storer = this.Storer.bind(this);
     this.state = {
       submit: 0,
-      id: ''
+      id: '',
+      prize: 0
     }
   }
 
@@ -119,6 +121,7 @@ class Main extends React.Component {
                 //validationSchema={{validationSchema}}
                 validation={{validationSchema}}
                 onSubmit={(values) => {
+                  {this.setState({prize: values.prize})}
                   this.setState({submit: 1})
                   this.Storer(values);
                 }}
@@ -211,7 +214,7 @@ class Main extends React.Component {
                     <Typography sx={{
                       color: '#acacad',
                     }}>
-                      The bounty prize, in $USDC
+                      The bounty prize, in $MTR
                     </Typography>
                     </Box>
                     <TextField
@@ -285,7 +288,7 @@ class Main extends React.Component {
     
       return (
         <div>
-          <Send cid={this.state.id}/>
+          <Send cid={this.state.id} prize={this.state.prize}/>
         </div>
       )
   }

@@ -1,9 +1,8 @@
 import React from 'react'
-import logo from './logo.svg'
-import IMAGE from './Removal-815.png'
-import COMP from './assets/IMG_6696.jpg'
 import OR1 from '../assets/openrecon1.jpg'
 import OR2 from '../assets/openrecon2.jpg'
+import OR3 from '../assets/or3.jpg'
+import OR4 from '../assets/or4.jpg'
 import {useEthers} from "@usedapp/core"
 import  '../styles/App.css'
 import {Link} from 'react-router-dom'
@@ -17,6 +16,8 @@ import { CardActionArea, CardActions } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import Globe from '../components/Globe'
 import Footer from '../components/Footer'
+import web3 from 'web3'
+import OpenReconABI from './abi.json'
 
 const theme = createTheme({
   palette: {
@@ -37,8 +38,6 @@ const theme = createTheme({
     fontFamily: ['Ubuntu', '"Montserrat"'].join(',')
   },
 });
-
-
 
 function App() {
 
@@ -156,74 +155,6 @@ function App() {
               textAlign: 'left',
         }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 1, md: 1, lg: 2, xl: 2 }}>
-          <Grid  item xs={1} sm={1} md={1} lg={1} xl={1}>
-          <Link to='/about' style={{textDecoration:"none"}}>
-            <Card  sx={{
-              backgroundColor: '#212121'
-            }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  src={OR2}
-                  alt=""
-                />
-                <CardContent>
-                  <Typography variant='h5' sx={{
-                    fontWeight: 'bold',
-                    color: 'white'
-                  }}>
-                    <br/>
-                    Learn How It Works
-                  </Typography>
-                  <br/>
-                  <Typography sx={{
-                    color: '#acacad',
-                  }}>
-                    Bounties are created through a smart contract on the Meter blockchain, and all bounty data storage is decentralized through IPFS/Filecoin.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-            </Link>
-            </Grid>
-
-            <br />
-
-            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-            <Link to='/learn' style={{textDecoration:"none"}}>
-            <Card sx={{
-              backgroundColor: '#212121'
-            }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={OR1}
-                  alt=""
-                />
-                <CardContent>
-                <Typography variant='h5' sx={{
-                  fontWeight: 'bold',
-                  color: 'white'
-                }}>
-                  <br/>
-                    Learn OSINT
-                  </Typography>
-                  <br/>
-                  <Typography sx={{
-                    color: '#acacad',
-                  }}>
-                    Learn how to collect Open Source Intelligence (OSINT) via publicly available sources and methods.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-            </Link>
-            </Grid>
-
-            <br />
-
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
             <Link to='/explore' style={{textDecoration:"none"}}>
             <Card sx={{
@@ -283,6 +214,73 @@ function App() {
                     color: '#acacad',
                   }}>
                     Post a bounty describing what you want to know.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+            </Link>
+            </Grid>
+
+
+            <Grid  item xs={1} sm={1} md={1} lg={1} xl={1}>
+          <Link to='/about' style={{textDecoration:"none"}}>
+            <Card  sx={{
+              backgroundColor: '#212121'
+            }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  src={OR3}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography variant='h5' sx={{
+                    fontWeight: 'bold',
+                    color: 'white'
+                  }}>
+                    <br/>
+                    Learn How It Works
+                  </Typography>
+                  <br/>
+                  <Typography sx={{
+                    color: '#acacad',
+                  }}>
+                    Bounties are created through a smart contract on the Meter blockchain, and all bounty data storage is decentralized through IPFS/Filecoin.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+            </Link>
+            </Grid>
+
+            <br />
+
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+            <Link to='/learn' style={{textDecoration:"none"}}>
+            <Card sx={{
+              backgroundColor: '#212121'
+            }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image={OR4}
+                  alt=""
+                />
+                <CardContent>
+                <Typography variant='h5' sx={{
+                  fontWeight: 'bold',
+                  color: 'white'
+                }}>
+                  <br/>
+                    Learn OSINT
+                  </Typography>
+                  <br/>
+                  <Typography sx={{
+                    color: '#acacad',
+                  }}>
+                    Learn how to collect Open Source Intelligence (OSINT) via publicly available sources and methods.
                   </Typography>
                 </CardContent>
               </CardActionArea>

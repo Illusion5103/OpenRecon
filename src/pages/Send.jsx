@@ -7,6 +7,10 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import Alert from '@mui/material/Alert';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useEthers } from "@usedapp/core"
+import OpenReconABI from './abi.json'
+import Web3 from 'web3'
+
 
 const theme = createTheme({
     palette: {
@@ -28,12 +32,8 @@ const theme = createTheme({
     },
 });
 
-
-interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-  }
   
-  const ExpandMore = styled((props: ExpandMoreProps) => {
+  const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
@@ -43,7 +43,51 @@ interface ExpandMoreProps extends IconButtonProps {
     }),
 }));
 
-function Send(props: any) {
+const ethEnabled = async () => {  
+  if (window.ethereum) {    
+    await window.ethereum.request({method: 'eth_requestAccounts'});    
+    // window.web3 = new Web3(window.ethereum);    
+    return true;  
+  }  
+return false;
+}
+
+const getNetworkId = async () => {
+  const web3 = new Web3(window.ethereum)
+  const currentChainId = await web3.eth.net.getId()
+  return currentChainId
+}
+
+function Send(props) {
+
+    const {account} = useEthers()
+
+    // const [res, timer] = React.useState(null)
+
+    ethEnabled()
+
+    // const web3 = new Web3('https://rpctest.meter.io')
+    const web3 = new Web3(window.ethereum)
+
+    const cid = props.cid
+    var prize = props.prize
+    prize = prize * 1000000000000000000;
+
+    const orecon = new web3.eth.Contract(OpenReconABI, '0x377dC25F3a6Add80D749FE8362C85517f9B65A06')  
+    // var ret = orecon.methodsgitcoi.makeIntel("a", "c").send({from: '0x614FDecCe0BB1723CBeA002505a7639Ab3329CB7'})
+    var ret = orecon.methods.fundBounty(cid).send({from: account, value: prize})
+    // var ret =  orecon.methods.getChildren("a").call()
+
+    // var res = null
+    // var timer = setInterval(function() {
+    //     ret.then(function(result) {
+    //         res = result
+    //         clearInterval(timer)
+    //     }, function(error) {      
+    //         console.log(error);
+    //     });
+  
+    // }, 1000);
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -71,6 +115,7 @@ function Send(props: any) {
                 display: 'block',
                 padding: 3
             }}>
+            
 
             <Alert variant="outlined" severity="info" >
             <Box sx={{
@@ -86,7 +131,8 @@ function Send(props: any) {
             </Typography>
             </Box>
             </Alert>
-    
+          
+
             <br/>
 
             <Card sx={{
@@ -99,12 +145,17 @@ function Send(props: any) {
               ml: 3,
               mr: 3
             }}>
-            Send the prize to the OpenRecon smart contract to activate the bounty
+            Send the prize to the OpenRecon smart contract on Meter to activate the bounty
             </Typography>
             <Typography sx={{
                     color: '#acacad',
                   }}>
-            Smart contract address:     
+           Note: ensure your wallet is connected to Meter Testnet! 
+            </Typography>
+            <Typography sx={{
+                    color: '#acacad',
+                  }}>
+            Smart contract address:    0x377dC25F3a6Add80D749FE8362C85517f9B65A06
             </Typography>
             <br/>
             <br/>
@@ -151,5 +202,6 @@ function Send(props: any) {
         </div>
     )
 }
+
 
 export default Send;

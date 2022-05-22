@@ -58,11 +58,11 @@ function Footer() {
                         </Link>
                     </Grid>
                     <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                        <Link to='https://github.com/fraanetski/openrecon' style={{textDecoration:"none"}}>
+                        <a target="_blank" href='https://github.com/fraanetski/openrecon' style={{textDecoration:"none"}}>
                             <Typography color='#acacad'>
                                 Code
                             </Typography>
-                        </Link>
+                        </a>
                     </Grid>
                 </Grid>
 

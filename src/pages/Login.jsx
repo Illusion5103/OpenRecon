@@ -5,6 +5,8 @@ import {Header} from "../components/Header"
 import {Container, Typography, Button, Box, Grid, Card} from '@mui/material'
 import {useEthers} from "@usedapp/core"
 import UAuth from '@uauth/js'
+import Web3 from 'web3'
+
 
 const theme = createTheme({
     palette: {
@@ -42,11 +44,43 @@ async function doLogin() {
   }
 }
 
+const getNetworkId = async () => {
+  const web3 = new Web3(window.ethereum)
+  const currentChainId = await web3.eth.net.getId()
+  return currentChainId
+}
+
+const switchNetwork = async (chainId) => {
+
+  const network = 0;
+  const currentChainId = await getNetworkId()
+  .then(function(result) {
+    network = result;
+  })
+  
+  if (currentChainId !== chainId) {
+    const web3 = new Web3(window.ethereum)
+    try {
+      await web3.currentProvider.request({
+        method: 'wallet_switchEthereumChain',
+          params: [{ chainId: Web3.utils.toHex(chainId) }],
+        });
+    } catch (switchError) {
+      // This error code indicates that the chain has not been added to MetaMask.
+      if (switchError.code === 4902) {
+        alert('please add the meter testnet chain')
+      }
+    }
+  }
+}
+
 function Login() {
 
   const {account, activateBrowserWallet, deactivate} = useEthers()
 
   const isConnected = account !== undefined
+
+  switchNetwork(83)
 
     return (
         <div>
