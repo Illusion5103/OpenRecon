@@ -10,7 +10,7 @@ Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
 
 ### Equal Access to Intelligence
 
-Open Source Intelligence (OSINT) is any information that can be legally gathered from public sources. It enables anyone with an internet connection to collect and analyze intelligence which can inform courses of action for organizations and people alike. Even for government-level intelligence work, the vast majority of information in a typical intelligence report is OSINT - it is estimated comprise >80% on average since the Cold War ended. 
+Open Source Intelligence (OSINT) is any information that can be legally gathered from public sources. It enables anyone with an internet connection to collect and analyze intelligence which can inform courses of action for organizations and people alike. Even for government-level intelligence work, the overwhelming majority of information in a typical intelligence report is OSINT.
 
 Through OpenRecon, OSINT collection is financially rewarded, and everything is decentralized to escape censorship. This grants every person around the world - as well as orgs like businesses and governments - equal access to high quality intelligence.
 
