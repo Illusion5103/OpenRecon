@@ -1,10 +1,5 @@
 [
 	{
-		"inputs": [],
-		"stateMutability": "payable",
-		"type": "constructor"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -82,49 +77,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "CIDToBounty",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "ParentToChildren",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address payable",
 				"name": "_address",
 				"type": "address"
@@ -139,6 +91,55 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			}
+		],
+		"name": "destroyBounty",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			}
+		],
+		"name": "fundBounty",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_parentCid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_childCid",
+				"type": "string"
+			}
+		],
+		"name": "makeIntel",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "payable",
+		"type": "constructor"
 	},
 	{
 		"inputs": [
@@ -169,6 +170,25 @@
 				"internalType": "uint8",
 				"name": "statusPaid",
 				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "bountyCIDs",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -254,36 +274,16 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_cid",
+				"name": "",
 				"type": "string"
 			}
 		],
-		"name": "destroyBounty",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_cid",
-				"type": "string"
-			}
-		],
-		"name": "fundBounty",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getCIDS",
+		"name": "CIDToBounty",
 		"outputs": [
 			{
-				"internalType": "string[]",
+				"internalType": "uint256",
 				"name": "",
-				"type": "string[]"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -310,11 +310,24 @@
 	},
 	{
 		"inputs": [],
+		"name": "getCIDS",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "getOwnedBounties",
 		"outputs": [
 			{
 				"internalType": "string[]",
-				"name": "ownedBounties",
+				"name": "",
 				"type": "string[]"
 			}
 		],
@@ -326,49 +339,12 @@
 		"name": "getOwnedIntel",
 		"outputs": [
 			{
-				"internalType": "string",
-				"name": "ownedIntel",
-				"type": "string"
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "intel",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_parentCid",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_childCid",
-				"type": "string"
-			}
-		],
-		"name": "makeIntel",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -428,6 +404,30 @@
 			}
 		],
 		"name": "ownerToIntel",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ParentToChildren",
 		"outputs": [
 			{
 				"internalType": "string",
