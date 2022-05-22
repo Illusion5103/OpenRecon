@@ -50,7 +50,9 @@ Submitting intel works similarly: a collector will submit their findings, which 
 Through the use of web3.storage, OpenRecon uses IPFS and Filecoin to save all of the information sent to the platform (ie bounty posts and intel collections). The CIDs are used to map intel collections to their parent bounty posts, and to map owners to the cids of their submissions for access control. 
 
 Examples of where in the code this is used: 
+
 src/pages/PostForm.jsx lines 67:74 | 294:298
+
 src/pages/Bounties.jsx lines 60:69 | 170:176 
 
 ### Meter
@@ -59,7 +61,8 @@ The smart contract is deployed on the Meter Testnet. The transactions must be do
 
 ## Misc
 
-Discord: netski#0625 on discord
+Discord: netski#0625
+
 UnstoppableDomain registered email address: fraanetski@protonmail.com
 
 
