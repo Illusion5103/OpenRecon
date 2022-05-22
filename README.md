@@ -16,7 +16,7 @@ Through OpenRecon, OSINT collection is financially rewarded, and everything is d
 
 We have seen successful bounty platforms for development and security work, but there are likely many other areas in which this model could be successfully applied. By building it on decentralized technologies, and using smart contracts to handle the financial transactions, the bounty model can incentivize and reward people in every country in disciplines like music, art, science, writing, and so on. 
 
-On a technical level, OpenRecon is about building a system that uses IPFS/Filecoin in conjunction with a smart contract on an advanced Layer 2 solution (Meter) in order to store and monetize information in a completely decentralized mannner. The code is all open source and free to use by anyone - meaning anyone can modify OpenRecon to create their own bounty platform on these technologies, and foster a micro-economy in their own discipline of interest. 
+On a technical level, OpenRecon is about building a system that uses IPFS/Filecoin in conjunction with a smart contract on an advanced Layer 2 solution (Meter) in order to store and monetize information in a completely decentralized mannner. The code is all open source and free to use by anyone - meaning anyone can modify OpenRecon to create their own bounty platform on these technologies, and foster a bounty economy in their own discipline of interest. 
 
 ## Application 
 
