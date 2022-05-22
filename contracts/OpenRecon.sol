@@ -63,6 +63,8 @@ contract OpenRecon {
         bountyToCID[id] = _cid;
         // do the opposite
         CIDToBounty[_cid] = id;
+        
+        intel.push(_cid);
         // emit NewBounty event
         emit NewBounty(id, _cid, _amount);
     }
@@ -114,34 +116,24 @@ contract OpenRecon {
         emit ClosedBounty(_id, _cid, bountyToAmount[_id]);
     }
 
-    // need a read function that will return 
-    // all parent cids
-    // all child cids for a given parent
-    // all cids owned by an address
-
-    // view, return all active bounty cids
-    function getCIDS() public view returns(string[] memory cidList) {
-        for (uint i = 0; i < bounties.length - 1; i++) {
-            if (bounties[i].statusActive == 1) {
-                cidList[i] = bounties[i].cid;
-            }
-        }
-        return cidList;
+    // @dev view, return all active bounty cids
+    function getCIDS() public view returns(string[] memory) {
+        return intel;
     }
 
-    // create a child cid (map an intel submission to a parent bounty)
+    // @dev create a child cid (map an intel submission to a parent bounty)
     function makeIntel(string memory _parentCid, string memory _childCid) public {
         ParentToChildren[_parentCid].push(_childCid);
         // map intel to collector address
         ownerToIntel[msg.sender].push(_childCid);
     }
 
-    // view, return all child cids for a given parent
+    // @dev view, return all child cids for a given parent
     function getChildren(string memory _cid) public view returns(string[] memory) {
         return ParentToChildren[_cid];
     }
 
-    // get the bounties owned by this address
+    // @dev get the bounties owned by this address
     function getOwnedBounties() public view returns(string[] memory ownedBounties) {
         address _owner = msg.sender;
         for (uint i = 0; i < ownerToBounties[_owner].length - 1; i++) {
@@ -150,6 +142,7 @@ contract OpenRecon {
         return ownedBounties;
     }
 
+    // @dev get the cids of the intel you've submitted
     function getOwnedIntel() public view returns(string memory ownedIntel) {
         return ownedIntel;
     }
