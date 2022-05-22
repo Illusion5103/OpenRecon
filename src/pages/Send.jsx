@@ -73,7 +73,8 @@ function Send(props) {
     var prize = props.prize
     prize = prize * 1000000000000000000;
 
-    const orecon = new web3.eth.Contract(OpenReconABI, '0x377dC25F3a6Add80D749FE8362C85517f9B65A06')  
+    const contract = '0xC22c3257EAC9c8a8008a659c3711Dd4f251d6826'
+    const orecon = new web3.eth.Contract(OpenReconABI, contract)  
     // var ret = orecon.methodsgitcoi.makeIntel("a", "c").send({from: '0x614FDecCe0BB1723CBeA002505a7639Ab3329CB7'})
     var ret = orecon.methods.fundBounty(cid).send({from: account, value: prize})
     // var ret =  orecon.methods.getChildren("a").call()

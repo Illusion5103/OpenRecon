@@ -119,7 +119,7 @@ class BountyMapper extends React.Component {
 
   async getCids() {
     const web3 = new Web3(window.ethereum)
-    const contract = '0x377dC25F3a6Add80D749FE8362C85517f9B65A06'
+    const contract = '0xC22c3257EAC9c8a8008a659c3711Dd4f251d6826'
     const orecon = new web3.eth.Contract(OpenReconABI, contract)  
     var abountyList = await orecon.methods.getCIDS().call()
     console.log(abountyList)

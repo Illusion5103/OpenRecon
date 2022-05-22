@@ -196,7 +196,12 @@ class Main extends React.Component {
                       <MenuItem value="">
                       </MenuItem>
                       <MenuItem value="Satellite Imagery">Satellite Imagery</MenuItem>
-                      <MenuItem value="Social Media">Social Media</MenuItem>
+                      <MenuItem value="Social Media">Threat Intel</MenuItem>
+                      <MenuItem value="Social Media">Public Records</MenuItem>
+                      <MenuItem value="Social Media">Dark Web</MenuItem>
+                      <MenuItem value="Social Media">Images/Videos/Docs</MenuItem>
+                      <MenuItem value="Social Media">IP/Domains</MenuItem>
+                      <MenuItem value="Social Media">Social Networks</MenuItem>
                       <MenuItem value="Other">Other</MenuItem>
                     </Select>
                     {props.errors.type && <div id="feedback">{props.errors.type}</div>}
