@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# OpenRecon
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live App](https://openrecon.xyz)
 
-## Available Scripts
+OSINT bounty platform built with React, IPFS/Filecoin, and Meter.
 
-In the project directory, you can run:
+Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
 
-### `npm start`
+## Motivation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Equal Access to Intelligence
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open Source Intelligence (OSINT) is any information that can be legally gathered from public sources. It enables anyone with an internet connection to collect and analyze intelligence which can inform courses of action for organizations and people alike. Even for government-level intelligence work, the overwhelming majority of information in a typical intelligence report is OSINT.
 
-### `npm test`
+Through OpenRecon, OSINT collection is financially rewarded, and everything is decentralized to escape censorship. This grants every person around the world - as well as orgs like businesses and governments - equal access to high quality intelligence.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### A Bounty Economy
 
-### `npm run build`
+We have seen successful bounty platforms for development and security work, but there are likely many other areas in which this model could be successfully applied. By building it on decentralized technologies, and using smart contracts to handle the financial transactions, the bounty model can incentivize and reward people in every country in disciplines like music, art, science, writing, and so on. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+On a technical level, OpenRecon is about building a system that uses IPFS/Filecoin in conjunction with a smart contract on a Layer 2 solution (Meter) in order to store and monetize information in a completely decentralized mannner. The code is all open source and free to use by anyone - meaning anyone can modify OpenRecon to create their own bounty platform on these technologies, and foster a bounty economy in their own discipline of interest. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Application 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Functionality
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
