@@ -1,8 +1,10 @@
 # OpenRecon
 
-OSINT bounty platform built with React, IPFS, Filecoin and on the Meter blockchain.
+[Live App](https://openrecon.xyz)
 
-Built during the L2 Rollathon https://gitcoin.co/hackathon/Rollathon/?
+OSINT bounty platform built with React, IPFS/Filecoin, and Meter.
+
+Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
 
 ## Motivation
 
