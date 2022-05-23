@@ -4,7 +4,7 @@
 
 [Storage Wizard Demo Video](https://youtu.be/R3FXNZ9Non8)
 
-[Unstoppable Domains Demo Video]
+[Unstoppable Domains Demo Video](https://youtu.be/GOFMIneNdsk)
 
 Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
 
@@ -63,7 +63,7 @@ The smart contract is deployed on the Meter Testnet. The transactions must be do
 
 Discord: netski#0625
 
-UnstoppableDomain registered email address: fraanetski@protonmail.com
+UnstoppableDomains registered email address: fraanetski@protonmail.com | 0xfraanetski.wallet
 
 
 
