@@ -70,7 +70,9 @@ function Dashboard() {
             }}>
                 <br/>
                 <Typography color="white">
-                <div style={{fontWeight: 'bold'}}> Account: </div> {account}
+                <div style={{fontWeight: 'bold'}}> Account: </div>
+                 {/* {account} */}
+                 0xfraanetski.wallet
                 </Typography>
                 <br/>
 

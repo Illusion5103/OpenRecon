@@ -31,8 +31,8 @@ const theme = createTheme({
 async function doLogin() {
   
   const uauth = new UAuth({
-    clientID: 'uauth_example_spa_id',
-    redirectUri: 'http://localhost:5000/callback',
+    clientID: "e2f8fed8-2ca7-46ff-831f-b53b2a1d256c",
+    redirectUri: "http://127.0.0.1",
   })
 
   try {
@@ -44,35 +44,35 @@ async function doLogin() {
   }
 }
 
-const getNetworkId = async () => {
-  const web3 = new Web3(window.ethereum)
-  const currentChainId = await web3.eth.net.getId()
-  return currentChainId
-}
+// const getNetworkId = async () => {
+//   const web3 = new Web3(window.ethereum)
+//   const currentChainId = await web3.eth.net.getId()
+//   return currentChainId
+// }
 
-const switchNetwork = async (chainId) => {
+// const switchNetwork = async (chainId) => {
 
-  const network = 0;
-  const currentChainId = await getNetworkId()
-  .then(function(result) {
-    network = result;
-  })
+//   const network = 0;
+//   const currentChainId = await getNetworkId()
+//   .then(function(result) {
+//     network = result;
+//   })
   
-  if (currentChainId !== chainId) {
-    const web3 = new Web3(window.ethereum)
-    try {
-      await web3.currentProvider.request({
-        method: 'wallet_switchEthereumChain',
-          params: [{ chainId: Web3.utils.toHex(chainId) }],
-        });
-    } catch (switchError) {
-      // This error code indicates that the chain has not been added to MetaMask.
-      if (switchError.code === 4902) {
-        alert('please add the meter testnet chain')
-      }
-    }
-  }
-}
+//   if (currentChainId !== chainId) {
+//     const web3 = new Web3(window.ethereum)
+//     try {
+//       await web3.currentProvider.request({
+//         method: 'wallet_switchEthereumChain',
+//           params: [{ chainId: Web3.utils.toHex(chainId) }],
+//         });
+//     } catch (switchError) {
+//       // This error code indicates that the chain has not been added to MetaMask.
+//       if (switchError.code === 4902) {
+//         alert('please add the meter testnet chain')
+//       }
+//     }
+//   }
+// }
 
 function Login() {
 
@@ -80,7 +80,7 @@ function Login() {
 
   const isConnected = account !== undefined
 
-  switchNetwork(83)
+  // switchNetwork(83)
 
     return (
         <div>

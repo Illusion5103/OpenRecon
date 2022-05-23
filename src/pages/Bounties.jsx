@@ -59,7 +59,7 @@ class BountyMapper extends React.Component {
   // take the web3.storage token and use it to retrieve the data, then parse the data into a json object
   async retrieve(cid) {
     const url = 'https://' + cid + '.ipfs.dweb.link'
-    const res = await this.curl(url)
+    const res = await this.getIPFS(url)
     const data = JSON.parse(res)
     this.addBounty(cid)
     this.addTitle(data.title)
@@ -100,8 +100,7 @@ class BountyMapper extends React.Component {
     }))
   }
 
-  // perform a curl request in javascript
-  curl(url) {
+  getIPFS(url) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
       xhr.open('GET', url)
@@ -162,6 +161,13 @@ class BountyMapper extends React.Component {
         </Typography>
         </Box>
         <br/>
+        <Typography color='#acacad' sx={{
+          textAlign: 'left',
+          ml: 3,
+          fontWeight: 'bold'
+        }}>
+          You must be on Meter Testnet to view bounties
+        </Typography>
         <br/>
         <Box sx={{
                   verticalAlign: 'middle',

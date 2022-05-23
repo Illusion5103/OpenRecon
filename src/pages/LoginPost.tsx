@@ -28,10 +28,10 @@ const theme = createTheme({
 
 async function doLogin() {
   
-    const uauth = new UAuth({
-      clientID: 'uauth_example_spa_id',
-      redirectUri: 'http://localhost:5000/callback',
-    })
+  const uauth = new UAuth({
+    clientID: "e2f8fed8-2ca7-46ff-831f-b53b2a1d256c",
+    redirectUri: "http://127.0.0.1",
+  })
   
     try {
       const authorization = await uauth.loginWithPopup()
