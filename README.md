@@ -4,7 +4,7 @@
 
 [Storage Wizard Demo Video](https://youtu.be/R3FXNZ9Non8)
 
-[Unstoppable Domains Demo Video](https://youtu.be/GOFMIneNdsk)
+[Unstoppable Domains Demo Video](https://youtu.be/4Df998qLo-o)
 
 Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
 
@@ -51,9 +51,9 @@ Through the use of web3.storage, OpenRecon uses IPFS and Filecoin to save all of
 
 Examples of where in the code this is used: 
 
-src/pages/PostForm.jsx lines 67:74 | 294:298
+[The 'Post Bounty' form](https://github.com/fraanetski/openrecon/blob/master/src/pages/PostForm.jsx) lines 67:74 & 294:298
 
-src/pages/Bounties.jsx lines 60:69 | 170:176 
+[The 'Explore' page](https://github.com/fraanetski/openrecon/blob/master/src/pages/Bounties.jsx) lines 60:69 & 170:176 
 
 ### Meter
 
