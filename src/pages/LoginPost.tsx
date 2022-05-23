@@ -96,14 +96,14 @@ function LoginPost() {
                     ) : (
                         <Box sx={{
                         }}>
-                        <Link to="/dash" style={{all:"unset"}}>
+                        <Link to="/post" style={{all:"unset"}}>
                             <Button sx={{align: 'right',
-                            backgroundColor: '#eb7d34'}}
+                            backgroundColor: '#green'}}
                                 variant="contained"
                                 size="large"
                                 onClick={() => activateBrowserWallet()}
                                 >
-                                Connect with Metamask
+                                Connect with Wallet
                             </Button>
                         </Link>
                         </Box>
