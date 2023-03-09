@@ -1,15 +1,5 @@
 # OpenRecon
 
-[Live App](https://openrecon.xyz)
-
-[Storage Wizard Demo Video](https://youtu.be/R3FXNZ9Non8)
-
-[Unstoppable Domains Demo Video](https://youtu.be/4Df998qLo-o)
-
-Built during the [L2 Rollathon](https://gitcoin.co/hackathon/Rollathon/)
-
-Contact: fraanetski@protonmail.com
-
 ## Summary
 
 OpenRecon is a decentralized OSINT bounty platform built with React, IPFS/Filecoin, and Meter.
@@ -49,21 +39,8 @@ Submitting intel works similarly: a collector will submit their findings, which 
 
 Through the use of web3.storage, OpenRecon uses IPFS and Filecoin to save all of the information sent to the platform (ie bounty posts and intel collections). The CIDs are used to map intel collections to their parent bounty posts, and to map owners to the cids of their submissions for access control. 
 
-Examples of where in the code this is used: 
-
-[The 'Post Bounty' form](https://github.com/fraanetski/openrecon/blob/master/src/pages/PostForm.jsx) lines 67:74 & 294:298
-
-[The 'Explore' page](https://github.com/fraanetski/openrecon/blob/master/src/pages/Bounties.jsx) lines 60:69 & 170:176 
-
 ### Meter
 
 The smart contract is deployed on the Meter Testnet. The transactions must be done through Meter, and the bounty prizes are in MTR. Interactions between Meter and the DApp are done through Web3.js. 
-
-## Misc
-
-Discord: netski#0625
-
-UnstoppableDomains registered email address: fraanetski@protonmail.com | 0xfraanetski.wallet
-
 
 
